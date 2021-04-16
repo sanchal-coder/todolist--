@@ -1,6 +1,6 @@
 html {
   background-color: #e4e9fd;
-  background-image: -webkit-linear-gradient(65deg, #a683e3 50%, #e4e9fd 50%);
+  background-image: -webkit-linear-gradient(65deg, #000000 50%, #e4e9fd 50%);
   min-height: 1000px;
   font-family: "helvetica neue";
 }
@@ -19,7 +19,7 @@ h1 {
 }
 
 #heading {
-  background-color: #a683e3;
+  background-color: #000000;
   text-align: center;
 }
 
@@ -36,11 +36,79 @@ h1 {
 
 input:checked + p {
   text-decoration: line-through;
-  text-decoration-color: #a683e3;
+  text-decoration-color: #000000;
 }
 
 input[type="checkbox"] {
   margin: 20px;
+}
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  height: 15px;
+  width: 15px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #39ff14;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 5px;
+  top: 2px;
+  width: 3px;
+  height: 7px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+
+
 }
 
 p {
@@ -61,7 +129,7 @@ button {
   width: 50px;
   border-radius: 50%;
   border-color: transparent;
-  background-color: #a683e3;
+  background-color: #39ff14;
   color: #fff;
   font-size: 30px;
   padding-bottom: 6px;
@@ -81,7 +149,7 @@ input[type="text"] {
 
 input[type="text"]:focus {
   outline: none;
-  box-shadow: inset 0 -3px 0 0 #a683e3;
+  box-shadow: inset 0 -3px 0 0 #000000;
 }
 
 ::placeholder {
